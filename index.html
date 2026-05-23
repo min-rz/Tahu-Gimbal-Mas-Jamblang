@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tahu Gimbal Mas Jamblang – Porsi Gede. Rasa Nendang.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── Light theme (default) ── */
+    :root {
+      --black: #1a1208;
+      --gold: #a8751e;
+      --gold-light: #e8b84b;
+      --brown: #7a4e1e;
+      --brown-light: #b07842;
+      --cream: #fdf8f1;
+      --cream-dark: #f5ede0;
+      --white: #ffffff;
+      --text-dark: #1a1208;
+      --text-mid: #5c3d1e;
+      --text-light: #9a7a55;
+
+      /* Semantic tokens — gunakan ini di seluruh komponen */
+      --bg-base:        #fdf8f1;
+      --bg-surface:     #ffffff;
+      --bg-subtle:      #f5ede0;
+      --bg-invert:      #1a1208;
+      --border-soft:    rgba(201,146,42,0.15);
+      --border-mid:     rgba(201,146,42,0.25);
+      --shadow-card:    rgba(0,0,0,0.07);
+      --shadow-hover:   rgba(0,0,0,0.13);
+      --nav-bg:         rgba(253,248,241,0.96);
+      --hero-grad-1:    rgba(253,248,241,0.92);
+      --hero-grad-2:    rgba(245,237,224,0.82);
+      --about-bg:       #1a1208;
+      --about-text:     rgba(255,255,255,0.7);
+      --about-point-bg: rgba(255,255,255,0.05);
+      --footer-bg:      #1a1208;
+      --footer-text:    rgba(255,255,255,0.5);
+      --footer-link:    rgba(255,255,255,0.55);
+      --footer-bottom:  rgba(255,255,255,0.1);
+      --footer-copy:    rgba(255,255,255,0.35);
+      --wa-label-bg:    #ffffff;
+      --wa-label-text:  #1a1208;
+      --sk-base:        #efe7da;
+      --sk-shine:       #f8f2e9;
+
+      color-scheme: light;
+    }
+
+    /* ── Dark theme ── */
+    [data-theme="dark"] {
+      --black: #f0e6d3;
+      --gold: #d4a03a;
+      --gold-light: #f0c060;
+      --brown: #d4966a;
+      --brown-light: #c8885a;
+      --cream: #1e1810;
+      --cream-dark: #261f14;
+      --white: #2a2218;
+      --text-dark: #f0e6d3;
+      --text-mid: #c8a87a;
+      --text-light: #8a7055;
+
+      --bg-base:        #1a1610;
+      --bg-surface:     #231d14;
+      --bg-subtle:      #2a2218;
+      --bg-invert:      #f0e6d3;
+      --border-soft:    rgba(212,160,58,0.18);
+      --border-mid:     rgba(212,160,58,0.3);
+      --shadow-card:    rgba(0,0,0,0.35);
+      --shadow-hover:   rgba(0,0,0,0.5);
+      --nav-bg:         rgba(26,22,16,0.96);
+      --hero-grad-1:    rgba(26,22,16,0.88);
+      --hero-grad-2:    rgba(30,24,16,0.75);
+      --about-bg:       #120f09;
+      --about-text:     rgba(240,230,211,0.65);
+      --about-point-bg: rgba(255,255,255,0.04);
+      --footer-bg:      #120f09;
+      --footer-text:    rgba(240,230,211,0.45);
+      --footer-link:    rgba(240,230,211,0.5);
+      --footer-bottom:  rgba(255,255,255,0.08);
+      --footer-copy:    rgba(240,230,211,0.3);
+      --wa-label-bg:    #2a2218;
+      --wa-label-text:  #f0e6d3;
+      --sk-base:        #2e2518;
+      --sk-shine:       #3a2f20;
+
+      color-scheme: dark;
+    }
+
+    /* ── Dark mode overrides for hardcoded colours ── */
+    [data-theme="dark"] body { background: var(--bg-base); }
+    [data-theme="dark"] nav  { background: var(--nav-bg); border-bottom-color: var(--border-soft); }
+    [data-theme="dark"] .hero {
+      background:
+        linear-gradient(160deg, var(--hero-grad-1) 0%, var(--hero-grad-2) 50%, rgba(212,160,58,0.06) 100%),
+        url('./Image/Landing Page.png');
+      background-size: cover; background-position: center;
+    }
+    [data-theme="dark"] .hero::before {
+      background: radial-gradient(ellipse at 70% 50%, rgba(212,160,58,0.1) 0%, transparent 60%);
+    }
+    [data-theme="dark"] .hero-badge {
+      background: var(--bg-surface);
+      border-color: var(--border-mid);
+      box-shadow: 0 2px 12px rgba(212,160,58,0.1);
+    }
+    [data-theme="dark"] .punch {
+      background: var(--bg-surface);
+      border-color: var(--border-soft);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+    [data-theme="dark"] .about-strip  { background: var(--about-bg); }
+    [data-theme="dark"] .about-point  { background: var(--about-point-bg); border-color: rgba(212,160,58,0.12); }
+    [data-theme="dark"] .about-strip p { color: var(--about-text); }
+    [data-theme="dark"] .about-strip .section-title { color: #f0e6d3; }
+    [data-theme="dark"] .about-strip [style*="color:var(--white)"],
+    [data-theme="dark"] .about-point h4 { color: #f0e6d3 !important; }
+    [data-theme="dark"] .urgency-section h2 { color: #ffffff; }
+    [data-theme="dark"] .btn-white,
+    [data-theme="dark"] .btn-outline-white {
+      background: var(--bg-surface) !important;
+      color: var(--gold) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+    }
+    [data-theme="dark"] .menu-section { background: var(--bg-subtle); }
+    [data-theme="dark"] .menu-card    {
+      background: var(--bg-surface);
+      border-color: var(--border-soft);
+      box-shadow: 0 2px 20px var(--shadow-card);
+    }
+    [data-theme="dark"] .menu-card:hover { box-shadow: 0 12px 40px var(--shadow-hover); }
+    [data-theme="dark"] .menu-img   { background: linear-gradient(135deg, #3a2e1a, #6a4a18); }
+    [data-theme="dark"] .menu-tag   { background: var(--bg-subtle); }
+    [data-theme="dark"] .why-section { background: var(--bg-surface); }
+    [data-theme="dark"] .why-card    { background: var(--bg-subtle); border-color: var(--border-soft); }
+    [data-theme="dark"] .why-card:hover { box-shadow: 0 8px 30px var(--shadow-hover); }
+    [data-theme="dark"] .reviews-section { background: var(--bg-subtle); }
+    [data-theme="dark"] .review-card {
+      background: var(--bg-surface);
+      border-color: var(--border-soft);
+    }
+    [data-theme="dark"] .location-section { background: var(--bg-surface); }
+    [data-theme="dark"] .location-map-embed { background: #2a2010; box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
+    [data-theme="dark"] .btn-map { background: var(--bg-invert); color: var(--bg-base); }
+    [data-theme="dark"] .btn-map:hover { background: var(--brown); color: var(--white); }
+
+    [data-theme="dark"] .countdown-section { background: var(--bg-surface); }
+    [data-theme="dark"] .countdown-section::before {
+      background: radial-gradient(ellipse at 50% 0%, rgba(212,160,58,0.06) 0%, transparent 65%);
+    }
+    [data-theme="dark"] .cd-num { background: var(--bg-subtle); border-color: var(--border-soft); }
+    [data-theme="dark"] .countdown-status.open  { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.3); }
+    [data-theme="dark"] .countdown-status.closed { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.3); }
+    [data-theme="dark"] .faq-section { background: var(--bg-base); }
+    [data-theme="dark"] .faq-item {
+      background: var(--bg-surface);
+      border-color: var(--border-soft);
+      box-shadow: 0 2px 12px var(--shadow-card);
+    }
+    [data-theme="dark"] .faq-item:hover { background: var(--bg-subtle); border-color: var(--border-mid); }
+    [data-theme="dark"] .faq-item.faq-active { border-color: rgba(212,160,58,0.4); box-shadow: 0 6px 28px rgba(212,160,58,0.1), 0 0 0 1px rgba(212,160,58,0.08); }
+    [data-theme="dark"] .faq-answer p { border-top-color: var(--border-soft); }
+    [data-theme="dark"] footer      { background: var(--footer-bg); }
+    [data-theme="dark"] .footer-brand p { color: var(--footer-text); }
+    [data-theme="dark"] .footer-col ul li a { color: var(--footer-link); }
+    [data-theme="dark"] .footer-bottom { border-top-color: var(--footer-bottom); }
+    [data-theme="dark"] .footer-bottom p { color: var(--footer-copy); }
+    [data-theme="dark"] .sticky-wa-label { background: var(--wa-label-bg); color: var(--wa-label-text); box-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+
+    /* Skeleton dark overrides */
+    [data-theme="dark"] .skeleton {
+      background: var(--sk-base);
+      background-image: linear-gradient(90deg, var(--sk-base) 0px, var(--sk-shine) 40%, var(--sk-base) 80%);
+      background-size: 600px 100%;
+    }
+    [data-theme="dark"] #skeleton-overlay { background: var(--bg-base); }
+    [data-theme="dark"] .sk-nav { background: rgba(26,22,16,0.96); border-bottom-color: rgba(212,160,58,0.1); }
+    [data-theme="dark"] .sk-hero { background: linear-gradient(160deg, rgba(26,22,16,0.95) 0%, rgba(30,24,16,0.85) 100%); }
+    [data-theme="dark"] .sk-countdown { background: var(--bg-surface); }
+    [data-theme="dark"] .sk-menu  { background: var(--bg-subtle); }
+    [data-theme="dark"] .sk-menu-card,
+    [data-theme="dark"] .sk-review-card { background: var(--bg-surface); border-color: rgba(212,160,58,0.1); }
+    [data-theme="dark"] .sk-reviews  { background: var(--bg-subtle); }
+    [data-theme="dark"] .sk-faq      { background: var(--bg-base); }
+    [data-theme="dark"] .sk-faq-item { background: var(--bg-surface); border-color: rgba(212,160,58,0.1); }
+
+    /* ── Theme Toggle Button ── */
+    .theme-toggle {
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1.5px solid var(--border-mid);
+      color: var(--text-mid);
+      font-size: 1.1rem;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s, color 0.25s;
+      flex-shrink: 0;
+      margin-left: 0.5rem;
+    }
+    .theme-toggle:hover {
+      background: var(--bg-subtle);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: rotate(18deg) scale(1.08);
+    }
+    .theme-toggle .icon-sun  { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Smooth theme transition */
+    html.theme-transitioning *,
+    html.theme-transitioning *::before,
+    html.theme-transitioning *::after {
+      transition:
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      max-width: 100%;
+      position: relative;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(253,248,241,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+      padding: 0 5vw;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .nav-logo {
+      display: flex; align-items: center;
+    }
+    .nav-logo img {
+      height: 54px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--text-mid);
+      font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--white);
+      padding: 0.55rem 1.4rem; border-radius: 40px;
+      font-size: 0.875rem; font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .nav-right {
+      display: flex; align-items: center; gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Auto-scroll secret button ── */
+    .autoscroll-btn {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: transparent;
+      border: none; cursor: pointer;
+      padding: 0; margin-left: 4px;
+      opacity: 0;
+      transition: opacity 0.3s, background 0.3s;
+      flex-shrink: 0;
+    }
+    .autoscroll-btn:hover { opacity: 0.25 !important; background: var(--gold); }
+    .autoscroll-btn.active { background: var(--gold); opacity: 0.55 !important; animation: autoscroll-pulse 1.5s infinite; }
+    @keyframes autoscroll-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(168,117,30,0.5); }
+      50%       { box-shadow: 0 0 0 5px rgba(168,117,30,0); }
+    }
+    .nav-cta:hover { background: var(--brown); transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(253,248,241,0.92) 0%, rgba(245,237,224,0.82) 50%, rgba(201,146,42,0.08) 100%), url('./Image/Landing Page.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      display: flex; align-items: center;
+      padding: 100px 5vw 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,146,42,0.12) 0%, transparent 60%);
+    }
+    .hero-content {
+      max-width: 620px;
+      position: relative; z-index: 2;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--white); border: 1px solid rgba(201,146,42,0.3);
+      color: var(--gold); border-radius: 40px;
+      padding: 0.35rem 1rem; font-size: 0.8rem; font-weight: 600;
+      margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(201,146,42,0.12);
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem; color: var(--text-mid);
+      line-height: 1.65; margin-bottom: 2rem; max-width: 480px;
+    }
+    .hero-ctas { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; max-width: 480px; }
+    .hero-ctas-row { display: flex; gap: 1rem; }
+    .hero-ctas-row .btn-primary,
+    .hero-ctas-row .btn-gofood-hero { flex: 1; text-align: center; white-space: nowrap; }
+    .btn-primary {
+      background: #25D366; color: #ffffff;
+      padding: 0.85rem 1.25rem; border-radius: 50px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    }
+    .btn-primary:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+    .btn-secondary {
+      background: var(--gold); color: #ffffff;
+      padding: 0.85rem 2rem; border-radius: 50px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none; border: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      text-align: center; display: block; width: 100%;
+      box-shadow: 0 4px 18px rgba(168,117,30,0.3);
+    }
+    .btn-secondary:hover { background: var(--brown); color: #ffffff; transform: translateY(-2px); }
+    @media (max-width: 768px) {
+      .hero-ctas { max-width: 100%; }
+      .hero-ctas-row { flex-direction: column; }
+      .hero-ctas-row .btn-primary,
+      .hero-ctas-row .btn-gofood-hero { white-space: normal; }
+    }
+    .hero-punches {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .punch {
+      background: var(--white); border: 1px solid rgba(201,146,42,0.2);
+      border-radius: 40px; padding: 0.4rem 1rem;
+      font-size: 0.82rem; font-weight: 500; color: var(--text-mid);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    }
+    .punch::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+
+    /* ─── SECTION SHELL ─── */
+    section { padding: 80px 5vw; }
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900; line-height: 1.15;
+      color: var(--black); margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--text-mid); max-width: 520px; line-height: 1.65;
+    }
+
+    /* ─── ABOUT STRIP ─── */
+    .about-strip {
+      background: var(--black);
+      padding: 60px 5vw;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .about-strip .section-title { color: var(--white); }
+    .about-heading { color: #ffffff !important; }
+    [data-theme="dark"] .about-heading { color: #f0e6d3 !important; }
+    .about-strip .section-label { color: var(--gold-light); }
+    .about-strip p { color: rgba(255,255,255,0.7); line-height: 1.75; margin-top: 1rem; }
+    .about-points { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .about-point {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: rgba(255,255,255,0.05); border-radius: 12px;
+      padding: 1rem 1.2rem; border: 1px solid rgba(201,146,42,0.15);
+    }
+    .about-icon {
+      width: 36px; height: 36px; background: var(--gold);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .about-point h4 { color: var(--white); font-size: 0.9rem; font-weight: 600; }
+    .about-point p { color: rgba(255,255,255,0.55); font-size: 0.82rem; margin-top: 0.2rem; }
+
+    /* ─── MENU ─── */
+    .menu-section { background: var(--cream-dark); }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .menu-card {
+      background: var(--white); border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid rgba(201,146,42,0.1);
+    }
+    .menu-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.13); }
+    .menu-img {
+      height: 320px; overflow: hidden;
+      background: linear-gradient(135deg, #e8d5b0, #c9922a);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative;
+    }
+    .menu-img img { width: 100%; height: 100%; object-fit: cover; }
+    .menu-badge-fresh {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--gold); color: var(--white);
+      font-size: 0.7rem; font-weight: 700;
+      padding: 0.25rem 0.7rem; border-radius: 40px;
+    }
+    .menu-body { padding: 1.4rem; }
+    .menu-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--black); margin-bottom: 0.5rem;
+    }
+    .menu-price {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--gold); margin: 0.75rem 0;
+    }
+    .menu-price span { font-size: 0.8rem; color: var(--text-light); font-weight: 400; }
+    .menu-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+    .menu-tag {
+      background: var(--cream-dark); color: var(--text-mid);
+      font-size: 0.75rem; font-weight: 500;
+      padding: 0.25rem 0.65rem; border-radius: 40px;
+    }
+    .menu-note { font-size: 0.8rem; color: var(--text-light); font-style: italic; margin-bottom: 1rem; }
+    .menu-order-btns { display: flex; flex-direction: row; gap: 0.6rem; }
+    .menu-order-btns .btn-order,
+    .menu-order-btns .btn-order-gofood { flex: 1; }
+    @media (max-width: 480px) {
+      .menu-order-btns { flex-direction: column; }
+    }
+    .btn-order {
+      display: block; text-align: center;
+      background: #25D366; color: #ffffff;
+      padding: 0.75rem; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-order:hover { background: #1da851; }
+    .btn-order-gofood {
+      display: block; text-align: center;
+      background: #e53935; color: #ffffff;
+      padding: 0.75rem; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-order-gofood:hover { background: #b71c1c; }
+    .btn-gofood-hero {
+      background: #e53935; color: #ffffff;
+      padding: 0.85rem 1.25rem; border-radius: 50px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(229,57,53,0.35);
+    }
+    .btn-gofood-hero:hover { background: #b71c1c; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(229,57,53,0.4); }
+
+    /* ─── WHY US ─── */
+    .why-section { background: var(--white); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .why-card {
+      background: var(--cream); border-radius: 16px;
+      padding: 1.8rem; border: 1px solid rgba(201,146,42,0.12);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .why-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ─── REVIEWS ─── */
+    .reviews-section { background: var(--cream-dark); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+    .review-card {
+      background: var(--white); border-radius: 16px;
+      padding: 1.5rem; border: 1px solid rgba(201,146,42,0.1);
+      position: relative;
+    }
+    .review-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .review-text { font-size: 0.92rem; color: var(--text-dark); line-height: 1.65; font-style: italic; margin-bottom: 1rem; }
+    .review-author { font-size: 0.82rem; font-weight: 700; color: var(--text-mid); }
+    .reviews-summary {
+      text-align: center; margin-top: 2.5rem;
+      font-size: 1.1rem; color: var(--text-mid);
+    }
+    .reviews-summary strong { color: var(--gold); font-size: 1.5rem; }
+
+    /* ─── LOCATION ─── */
+    .location-section {
+      background: var(--white);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .location-info h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 900; color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .location-info p { color: var(--text-mid); line-height: 1.75; margin-bottom: 1.5rem; }
+    .location-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn-map {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--black); color: var(--white);
+      padding: 0.8rem 1.6rem; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-map:hover { background: var(--brown); }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #25D366; color: #ffffff;
+      padding: 0.8rem 1.6rem; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-wa:hover { opacity: 0.88; }
+    .location-map-embed {
+      border-radius: 20px; overflow: hidden;
+      height: 340px; background: #e5d5b8;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .location-map-embed iframe { width: 100%; height: 100%; border: none; border-radius: 20px; }
+    .location-facts { display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .location-fact {
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .location-fact strong { font-size: 0.95rem; color: var(--black); font-weight: 700; }
+    .location-fact span { font-size: 0.8rem; color: var(--text-light); }
+
+    /* ─── URGENCY ─── */
+    .urgency-section {
+      background: var(--gold);
+      padding: 70px 5vw; text-align: center;
+    }
+    .urgency-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900; color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .urgency-section p { color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 2rem; }
+    .urgency-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: var(--white); color: var(--gold);
+      padding: 0.9rem 2.2rem; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+    .btn-outline-white {
+      background: var(--white); color: var(--gold);
+      padding: 0.9rem 2.2rem; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none; border: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .btn-outline-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      padding: 60px 5vw 30px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand .nav-logo { font-size: 1.4rem; display: block; margin-bottom: 1rem; }
+    .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.875rem; line-height: 1.7; }
+    .footer-col h4 { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a { color: rgba(255,255,255,0.55); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
+
+    /* ─── STICKY WA ─── */
+    .sticky-wa {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      background: #25D366; color: var(--white);
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sticky-wa:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+    .sticky-wa-label {
+      position: fixed; bottom: 32px; right: 94px; z-index: 200;
+      background: var(--white); color: var(--text-dark);
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.4rem 0.9rem; border-radius: 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      white-space: nowrap;
+      animation: pulse 2.5s infinite;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.7; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .about-strip,
+      .location-section { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero {
+        padding: 120px 5vw 60px;
+        min-height: 100svh;
+        background-position: top center;
+        align-items: flex-start;
+      }
+      .hero-ctas { flex-direction: column; }
+      .hero-content { max-width: 100%; }
+    }
+
+    /* ─── COUNTDOWN SECTION ─── */
+    .countdown-section {
+      background: var(--white);
+      padding: 70px 5vw;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(168,117,30,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .countdown-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+    .countdown-icon { font-size: 2.8rem; margin-bottom: 0.6rem; }
+    .countdown-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900; color: var(--black);
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .countdown-status {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 1rem; font-weight: 700;
+      padding: 0.45rem 1.2rem; border-radius: 40px;
+      margin-bottom: 1.6rem;
+      transition: all 0.4s;
+    }
+    .countdown-status.open {
+      background: rgba(34,197,94,0.12);
+      color: #16a34a;
+      border: 1px solid rgba(34,197,94,0.4);
+    }
+    .countdown-status.closed {
+      background: rgba(239,68,68,0.1);
+      color: #dc2626;
+      border: 1px solid rgba(239,68,68,0.35);
+    }
+    .countdown-status .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      display: inline-block;
+    }
+    .countdown-status.open .dot { background: #16a34a; box-shadow: 0 0 6px rgba(22,163,74,0.5); }
+    .countdown-status.closed .dot { background: #dc2626; box-shadow: 0 0 6px rgba(220,38,38,0.5); }
+    .countdown-timer-label {
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .countdown-digits {
+      display: flex; justify-content: center; align-items: center;
+      gap: 0.5rem; flex-wrap: nowrap; margin-bottom: 0.5rem;
+    }
+    .cd-block { display: flex; flex-direction: column; align-items: center; }
+    .cd-num {
+      background: var(--cream);
+      border: 1px solid rgba(168,117,30,0.2);
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      font-weight: 900; color: var(--gold);
+      min-width: clamp(64px, 18vw, 92px);
+      padding: 0.5rem 0.4rem;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .cd-label {
+      font-size: 0.7rem; color: var(--text-light);
+      font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-top: 0.4rem;
+    }
+    .cd-sep {
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 900; color: var(--gold);
+      margin-bottom: 1.2rem;
+      align-self: flex-start; padding-top: 0.4rem;
+    }
+    .countdown-urgency {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--brown);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    .countdown-urgency.visible { display: block; }
+    .countdown-ops {
+      margin-top: 1.5rem;
+      font-size: 0.85rem; color: var(--text-light);
+      font-weight: 500;
+    }
+    .countdown-ops strong { color: var(--text-mid); }
+    .countdown-cta {
+      margin-top: 1.8rem;
+      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .countdown-cta a {
+      padding: 0.8rem 1.8rem; border-radius: 50px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .countdown-cta .cta-wa {
+      background: #25D366; color: #ffffff;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.35);
+    }
+    .countdown-cta .cta-wa:hover { background: #1da851; transform: translateY(-2px); }
+    .countdown-cta .cta-gf {
+      background: #e53935; color: var(--white);
+      box-shadow: 0 4px 18px rgba(229,57,53,0.3);
+    }
+    .countdown-cta .cta-gf:hover { background: #b71c1c; transform: translateY(-2px); }
+    @media (max-width: 480px) {
+      .countdown-cta { flex-direction: column; }
+      .countdown-cta a { text-align: center; }
+    }
+
+    /* ─── FAQ ─── */
+    .faq-section {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .faq-header .section-label { display: block; }
+    .faq-header .section-title { margin: 0 auto 0.75rem; }
+    .faq-header .section-sub { margin: 0 auto; text-align: center; }
+    .faq-container {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid rgba(168,117,30,0.14);
+      border-radius: 14px;
+      margin-bottom: 0.9rem;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .faq-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(168,117,30,0.3);
+      background: #fffdf9;
+    }
+    .faq-item.faq-active {
+      border-color: rgba(168,117,30,0.45);
+      box-shadow: 0 6px 28px rgba(168,117,30,0.13), 0 0 0 1px rgba(168,117,30,0.1);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+    .faq-active .faq-question {
+      color: var(--brown);
+    }
+    .faq-question:focus { outline: none; }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(168,117,30,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--gold);
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+      line-height: 1;
+      padding-bottom: 1px;
+    }
+    .faq-active .faq-icon {
+      transform: rotate(180deg);
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--white);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+      opacity: 0;
+      padding: 0 1.4rem;
+    }
+    .faq-active .faq-answer {
+      max-height: 160px;
+      opacity: 1;
+      padding: 0 1.4rem 1.15rem;
+    }
+    .faq-answer p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      border-top: 1px solid rgba(168,117,30,0.1);
+      padding-top: 0.85rem;
+    }
+    .faq-microcopy {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .faq-cta-wrap {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .btn-faq-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: #ffffff;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-faq-wa:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) {
+      .faq-question { font-size: 0.9rem; padding: 1rem 1.1rem; }
+      .faq-answer { padding: 0 1.1rem; }
+      .faq-active .faq-answer { padding: 0 1.1rem 1rem; }
+    }
+
+    /* ════════════════════════════════════════
+       SKELETON LOADING SYSTEM
+    ════════════════════════════════════════ */
+
+    @keyframes shimmer {
+      0%   { background-position: -600px 0; }
+      100% { background-position:  600px 0; }
+    }
+
+    .skeleton {
+      background: #efe7da;
+      background-image: linear-gradient(
+        90deg,
+        #efe7da 0px,
+        #f8f2e9 40%,
+        #efe7da 80%
+      );
+      background-size: 600px 100%;
+      animation: shimmer 1.7s infinite linear;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* overlay */
+    #skeleton-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--cream);
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform-origin: center top;
+    }
+    #skeleton-overlay.fade-out {
+      opacity: 0;
+      transform: scale(1.015);
+      pointer-events: none;
+    }
+
+    /* nav */
+    .sk-nav {
+      height: 68px;
+      background: rgba(253,248,241,0.96);
+      border-bottom: 1px solid rgba(201,146,42,0.12);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; position: sticky; top: 0;
+    }
+    .sk-nav-logo  { width: 120px; height: 36px; border-radius: 8px; }
+    .sk-nav-links { display: flex; gap: 1.5rem; }
+    .sk-nav-link  { width: 70px; height: 14px; border-radius: 40px; }
+    .sk-nav-cta   { width: 120px; height: 34px; border-radius: 40px; }
+
+    /* hero */
+    .sk-hero {
+      min-height: 100vh;
+      padding: 130px 5vw 60px;
+      display: flex; align-items: center;
+      background: linear-gradient(160deg, rgba(253,248,241,0.95) 0%, rgba(245,237,224,0.85) 100%);
+    }
+    .sk-hero-content { max-width: 520px; width: 100%; }
+    .sk-badge   { width: 220px; height: 28px; border-radius: 40px; margin-bottom: 1.6rem; }
+    .sk-title-1 { width: 90%; height: 52px; border-radius: 10px; margin-bottom: 0.85rem; }
+    .sk-title-2 { width: 72%; height: 52px; border-radius: 10px; margin-bottom: 1.4rem; }
+    .sk-para-1  { width: 100%; height: 16px; border-radius: 6px; margin-bottom: 0.55rem; }
+    .sk-para-2  { width: 85%; height: 16px; border-radius: 6px; margin-bottom: 2rem; }
+    .sk-btns    { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .sk-btn-p   { width: 180px; height: 48px; border-radius: 50px; }
+    .sk-btn-s   { width: 160px; height: 48px; border-radius: 50px; }
+    .sk-punches { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .sk-punch   { width: 130px; height: 32px; border-radius: 40px; }
+
+    /* countdown */
+    .sk-countdown {
+      background: var(--white); padding: 70px 5vw;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .sk-cd-icon   { width: 56px; height: 56px; border-radius: 50%; }
+    .sk-cd-title  { width: 240px; height: 32px; border-radius: 8px; }
+    .sk-cd-status { width: 130px; height: 30px; border-radius: 40px; }
+    .sk-cd-digits { display: flex; gap: 0.6rem; align-items: center; }
+    .sk-cd-num    { width: 80px; height: 80px; border-radius: 12px; }
+    .sk-cd-sep    { width: 18px; height: 14px; border-radius: 4px; }
+    .sk-cd-btns   { display: flex; gap: 1rem; margin-top: 0.5rem; }
+    .sk-cd-btn    { width: 160px; height: 44px; border-radius: 50px; }
+
+    /* menu */
+    .sk-menu { background: var(--cream-dark); padding: 80px 5vw; }
+    .sk-section-label { width: 160px; height: 13px; border-radius: 6px; margin-bottom: 0.8rem; }
+    .sk-section-title { width: 280px; height: 40px; border-radius: 10px; margin-bottom: 0.8rem; }
+    .sk-section-sub   { width: 380px; height: 16px; border-radius: 6px; margin-bottom: 2.5rem; max-width: 100%; }
+    .sk-menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .sk-menu-card { background: var(--white); border-radius: 20px; overflow: hidden; border: 1px solid rgba(201,146,42,0.1); padding-bottom: 1.4rem; }
+    .sk-menu-img  { width: 100%; height: 220px; border-radius: 0; }
+    .sk-menu-body { padding: 1.4rem 1.4rem 0; display: flex; flex-direction: column; gap: 0.7rem; }
+    .sk-menu-name { width: 65%; height: 20px; border-radius: 6px; }
+    .sk-menu-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .sk-menu-tag  { width: 85px; height: 22px; border-radius: 40px; }
+    .sk-menu-price { width: 110px; height: 24px; border-radius: 6px; }
+    .sk-menu-note  { width: 100%; height: 14px; border-radius: 6px; }
+    .sk-menu-btns  { display: flex; gap: 0.6rem; padding: 0 1.4rem; margin-top: 0.3rem; }
+    .sk-menu-btn   { flex: 1; height: 40px; border-radius: 10px; }
+
+    /* reviews */
+    .sk-reviews { background: var(--cream-dark); padding: 80px 5vw; }
+    .sk-reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+    .sk-review-card { background: var(--white); border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(201,146,42,0.1); display: flex; flex-direction: column; gap: 0.65rem; }
+    .sk-stars    { width: 90px; height: 14px; border-radius: 6px; }
+    .sk-rv-ln1   { width: 100%; height: 13px; border-radius: 6px; }
+    .sk-rv-ln2   { width: 88%; height: 13px; border-radius: 6px; }
+    .sk-rv-ln3   { width: 60%; height: 13px; border-radius: 6px; }
+    .sk-rv-author{ width: 130px; height: 12px; border-radius: 6px; margin-top: 0.3rem; }
+
+    /* faq */
+    .sk-faq { background: var(--cream); padding: 80px 5vw; }
+    .sk-faq-header { text-align: center; margin-bottom: 3rem; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+    .sk-faq-label  { width: 80px; height: 13px; border-radius: 6px; }
+    .sk-faq-title  { width: 320px; height: 36px; border-radius: 10px; max-width: 90%; }
+    .sk-faq-sub    { width: 420px; height: 15px; border-radius: 6px; max-width: 90%; }
+    .sk-faq-list   { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.9rem; }
+    .sk-faq-item   { background: var(--white); border: 1px solid rgba(168,117,30,0.12); border-radius: 14px; padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .sk-faq-q      { height: 16px; border-radius: 6px; flex: 1; }
+    .sk-faq-icon   { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; }
+
+    /* hide real content until loaded */
+    body:not(.loaded) .site-content {
+      opacity: 0;
+      pointer-events: none;
+    }
+    body.loaded .site-content {
+      opacity: 1;
+      transition: opacity 0.7s ease;
+    }
+    body:not(.loaded) .sticky-wa,
+    body:not(.loaded) .sticky-wa-label { opacity: 0; }
+    body.loaded .sticky-wa,
+    body.loaded .sticky-wa-label {
+      opacity: 1;
+      transition: opacity 0.8s ease 1s;
+    }
+
+    /* stagger for cards (handled by JS, this is the base state) */
+    .menu-card, .review-card {
+      will-change: opacity, transform;
+    }
+
+    @media (max-width: 768px) {
+      .sk-hero { padding: 120px 5vw 50px; }
+      .sk-title-1, .sk-title-2 { height: 38px; }
+      .sk-cd-num { width: 60px; height: 60px; }
+    }
+
+    /* ════════════════════════════════════════
+       SCROLL REVEAL ANIMATIONS
+    ════════════════════════════════════════ */
+
+    /* Base state — semua elemen yang akan dianimasikan */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.reveal-left {
+      transform: translateX(-42px);
+    }
+    .reveal.reveal-right {
+      transform: translateX(42px);
+    }
+    .reveal.reveal-scale {
+      transform: scale(0.94) translateY(20px);
+    }
+
+    /* Visible state */
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Stagger delay helpers */
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    .reveal-d5 { transition-delay: 0.40s; }
+    .reveal-d6 { transition-delay: 0.48s; }
+
+    /* Location section — info slide dari kiri, map dari kanan */
+    .location-info  { transition-duration: 0.75s; }
+    .location-map-embed { transition-duration: 0.75s; }
+
+    /* FAQ items — stagger muncul satu per satu */
+    .faq-item { transition-duration: 0.6s; }
+
+    /* Urgency section — scale up dramatis */
+    .urgency-section .urgency-inner {
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Reduced motion — hormati preferensi pengguna */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: opacity 0.3s ease !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     SKELETON OVERLAY
+══════════════════════════════════════ -->
+<div id="skeleton-overlay">
+
+  <!-- sk nav -->
+  <div class="sk-nav">
+    <span class="skeleton sk-nav-logo"></span>
+    <div class="sk-nav-links">
+      <span class="skeleton sk-nav-link"></span>
+      <span class="skeleton sk-nav-link"></span>
+      <span class="skeleton sk-nav-link"></span>
+      <span class="skeleton sk-nav-link"></span>
+      <span class="skeleton sk-nav-link"></span>
+    </div>
+    <span class="skeleton sk-nav-cta"></span>
+  </div>
+
+  <!-- sk hero -->
+  <div class="sk-hero">
+    <div class="sk-hero-content">
+      <span class="skeleton sk-badge"></span>
+      <span class="skeleton sk-title-1"></span>
+      <span class="skeleton sk-title-2"></span>
+      <span class="skeleton sk-para-1"></span>
+      <span class="skeleton sk-para-2"></span>
+      <div class="sk-btns">
+        <span class="skeleton sk-btn-p"></span>
+        <span class="skeleton sk-btn-s"></span>
+        <span class="skeleton sk-btn-p"></span>
+      </div>
+      <div class="sk-punches">
+        <span class="skeleton sk-punch"></span>
+        <span class="skeleton sk-punch"></span>
+        <span class="skeleton sk-punch"></span>
+        <span class="skeleton sk-punch"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- sk countdown -->
+  <div class="sk-countdown">
+    <span class="skeleton sk-cd-icon"></span>
+    <span class="skeleton sk-cd-title"></span>
+    <span class="skeleton sk-cd-status"></span>
+    <div class="sk-cd-digits">
+      <span class="skeleton sk-cd-num"></span>
+      <span class="skeleton sk-cd-sep"></span>
+      <span class="skeleton sk-cd-num"></span>
+      <span class="skeleton sk-cd-sep"></span>
+      <span class="skeleton sk-cd-num"></span>
+    </div>
+    <div class="sk-cd-btns">
+      <span class="skeleton sk-cd-btn"></span>
+      <span class="skeleton sk-cd-btn"></span>
+    </div>
+  </div>
+
+  <!-- sk menu -->
+  <div class="sk-menu">
+    <span class="skeleton sk-section-label"></span>
+    <span class="skeleton sk-section-title"></span>
+    <span class="skeleton sk-section-sub"></span>
+    <div class="sk-menu-grid">
+      <div class="sk-menu-card">
+        <span class="skeleton sk-menu-img"></span>
+        <div class="sk-menu-body">
+          <span class="skeleton sk-menu-name"></span>
+          <div class="sk-menu-tags">
+            <span class="skeleton sk-menu-tag"></span>
+            <span class="skeleton sk-menu-tag"></span>
+            <span class="skeleton sk-menu-tag"></span>
+          </div>
+          <span class="skeleton sk-menu-price"></span>
+          <span class="skeleton sk-menu-note"></span>
+        </div>
+        <div class="sk-menu-btns">
+          <span class="skeleton sk-menu-btn"></span>
+          <span class="skeleton sk-menu-btn"></span>
+        </div>
+      </div>
+      <div class="sk-menu-card">
+        <span class="skeleton sk-menu-img"></span>
+        <div class="sk-menu-body">
+          <span class="skeleton sk-menu-name"></span>
+          <div class="sk-menu-tags">
+            <span class="skeleton sk-menu-tag"></span>
+            <span class="skeleton sk-menu-tag"></span>
+          </div>
+          <span class="skeleton sk-menu-price"></span>
+          <span class="skeleton sk-menu-note"></span>
+        </div>
+        <div class="sk-menu-btns">
+          <span class="skeleton sk-menu-btn"></span>
+          <span class="skeleton sk-menu-btn"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sk reviews -->
+  <div class="sk-reviews">
+    <span class="skeleton sk-section-label"></span>
+    <span class="skeleton sk-section-title"></span>
+    <div class="sk-reviews-grid">
+      <div class="sk-review-card">
+        <span class="skeleton sk-stars"></span>
+        <span class="skeleton sk-rv-ln1"></span>
+        <span class="skeleton sk-rv-ln2"></span>
+        <span class="skeleton sk-rv-ln3"></span>
+        <span class="skeleton sk-rv-author"></span>
+      </div>
+      <div class="sk-review-card">
+        <span class="skeleton sk-stars"></span>
+        <span class="skeleton sk-rv-ln1"></span>
+        <span class="skeleton sk-rv-ln2"></span>
+        <span class="skeleton sk-rv-ln3"></span>
+        <span class="skeleton sk-rv-author"></span>
+      </div>
+      <div class="sk-review-card">
+        <span class="skeleton sk-stars"></span>
+        <span class="skeleton sk-rv-ln1"></span>
+        <span class="skeleton sk-rv-ln2"></span>
+        <span class="skeleton sk-rv-ln3"></span>
+        <span class="skeleton sk-rv-author"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- sk faq -->
+  <div class="sk-faq">
+    <div class="sk-faq-header">
+      <span class="skeleton sk-faq-label"></span>
+      <span class="skeleton sk-faq-title"></span>
+      <span class="skeleton sk-faq-sub"></span>
+    </div>
+    <div class="sk-faq-list">
+      <div class="sk-faq-item">
+        <span class="skeleton sk-faq-q"></span>
+        <span class="skeleton sk-faq-icon"></span>
+      </div>
+      <div class="sk-faq-item">
+        <span class="skeleton sk-faq-q" style="width:55%"></span>
+        <span class="skeleton sk-faq-icon"></span>
+      </div>
+      <div class="sk-faq-item">
+        <span class="skeleton sk-faq-q" style="width:70%"></span>
+        <span class="skeleton sk-faq-icon"></span>
+      </div>
+      <div class="sk-faq-item">
+        <span class="skeleton sk-faq-q" style="width:45%"></span>
+        <span class="skeleton sk-faq-icon"></span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#skeleton-overlay -->
+
+<!-- ══════════════════════════════════════
+     REAL CONTENT
+══════════════════════════════════════ -->
+<div class="site-content">
+
+<!-- ─── STICKY WA ─── -->
+<a href="https://wa.me/6285878274151?text=Halo%20Mas%20Jamblang!%20Saya%20mau%20pesan%20Tahu%20Gimbal." class="sticky-wa" title="Chat WhatsApp">
+  💬
+</a>
+<div class="sticky-wa-label">Pesan Sekarang!</div>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <div class="nav-logo" style="display:flex;align-items:center;gap:6px;">
+    <img src="./Image/Navbar.png" alt="Navbar Logo">
+    <button class="autoscroll-btn" id="autoscrollBtn" title=""></button>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#kenapa">Kenapa Kami</a></li>
+    <li><a href="#ulasan">Ulasan</a></li>
+    <li><a href="#lokasi">Lokasi</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#home" class="nav-cta">Pesan Sekarang</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Ganti tema">
+      <span class="icon-moon">🌙</span>
+      <span class="icon-sun">☀️</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">⭐ 4.8 Rating dari Ratusan Pelanggan Setia</div>
+    <h1>Tahu Gimbal <em>Legendaris</em><br>yang Bikin Kamu Balik Lagi</h1>
+    <p>Porsi jumbo, udang utuh, bumbu kacang fresh. Harga mulai dari <strong>20 ribu</strong>. Street food rasa bintang lima.</p>
+    <div class="hero-ctas">
+      <div class="hero-ctas-row">
+        <a href="https://wa.me/6285878274151?text=Halo%20Mas%20Jamblang!%20Saya%20mau%20pesan%20Tahu%20Gimbal." class="btn-primary">💬 Pesan via WhatsApp</a>
+        <a href="https://gofood.co.id/semarang/restaurant/tahu-gimbal-mas-jamblank-f473ed5a-2a18-4b10-8622-4ba6977c3e4b" target="_blank" class="btn-gofood-hero">🛵 Pesan via GoFood</a>
+      </div>
+      <a href="#menu" class="btn-secondary">Lihat Menu</a>
+    </div>
+    <div class="hero-punches">
+      <span class="punch">Udang utuh, bukan remahan</span>
+      <span class="punch">Gimbal goreng dadakan</span>
+      <span class="punch">Bumbu kacang seimbang</span>
+      <span class="punch">Bisa bayar QRIS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COUNTDOWN ─── -->
+<section class="countdown-section" id="status">
+  <div class="countdown-inner">
+    <div class="countdown-icon" id="cd-icon">🍽️</div>
+    <h2 class="countdown-title" id="cd-title">Masih Buka Hari Ini</h2>
+    <div class="countdown-status open" id="cd-status">
+      <span class="dot"></span>
+      <span id="cd-status-text">Sedang Buka</span>
+    </div>
+    <div class="countdown-timer-label" id="cd-timer-label">Tutup dalam</div>
+    <div class="countdown-digits">
+      <div class="cd-block">
+        <div class="cd-num" id="cd-hours">00</div>
+        <div class="cd-label">Jam</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-minutes">00</div>
+        <div class="cd-label">Menit</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block">
+        <div class="cd-num" id="cd-seconds">00</div>
+        <div class="cd-label">Detik</div>
+      </div>
+    </div>
+    <div class="countdown-urgency" id="cd-urgency">⚡ Segera order sebelum tutup!</div>
+    <div class="countdown-ops">Jam Operasional: <strong>10.00 – 22.00 WIB</strong></div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about-strip">
+  <div>
+    <div class="section-label">Cerita Kami</div>
+    <h2 class="section-title about-heading">Diracik Tradisional.<br>Rasa Tidak Berubah.</h2>
+    <p>Diracik dengan cara tradisional khas Semarang. Fokus pada rasa asli yang tidak berubah, walau harga tetap terjangkau. Pelanggan datang lagi karena konsisten — bukan sekali coba, tapi terus kembali.</p>
+    <p style="margin-top:0.75rem">Lebih dari <strong style="color:var(--gold-light)">100+ pelanggan puas</strong>. Sering repeat order via GoFood. Favorit area Banyumanik.</p>
+  </div>
+  <div class="about-points">
+    <div class="about-point">
+      <div class="about-icon">📜</div>
+      <div>
+        <h4>Resep Tradisional</h4>
+        <p>Warisan cita rasa Semarang yang dijaga kualitasnya.</p>
+      </div>
+    </div>
+    <div class="about-point">
+      <div class="about-icon">🥜</div>
+      <div>
+        <h4>Fokus Kualitas Bahan</h4>
+        <p>Udang fresh, bumbu kacang dibuat setiap hari, tidak pakai frozen.</p>
+      </div>
+    </div>
+    <div class="about-point">
+      <div class="about-icon">🍽️</div>
+      <div>
+        <h4>Porsi Tidak Dikurangi</h4>
+        <p>Kenyang, puas, nagih. Tanpa mahal. Selalu konsisten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MENU ─── -->
+<section class="menu-section" id="menu">
+  <div class="section-label">Menu Favorit Pelanggan</div>
+  <h2 class="section-title">Satu Menu. Satu Cinta.</h2>
+  <p class="section-sub">Semua dibuat fresh saat dipesan. Tidak ada kompromi soal rasa.</p>
+  <div class="menu-grid">
+
+    <!-- Card 1 -->
+    <div class="menu-card">
+      <div class="menu-img" style="background: linear-gradient(135deg, #d4a96a, #8b4513);">
+        <img src="./Image/Menu.png" alt="Menu">
+        
+        <div class="menu-badge-fresh">🔥 Best Seller</div>
+      </div>
+      <div class="menu-body">
+        <div class="menu-name">Tahu Gimbal Original</div>
+        <div class="menu-tags">
+          <span class="menu-tag">🦐 Udang Utuh</span>
+          <span class="menu-tag">🫙 Tahu Pong</span>
+          <span class="menu-tag">🥬 Kol Segar</span>
+          <span class="menu-tag">🥜 Bumbu Kacang Khas</span>
+        </div>
+        <div class="menu-price">Rp 20.000 <span>/ porsi</span></div>
+        <p class="menu-note">Porsi jumbo. Gimbal digoreng dadakan. Bumbu kacang seimbang — tidak enek, tidak hambar.</p>
+        <div class="menu-order-btns">
+          <a href="https://wa.me/6285878274151?text=Halo%20Mas%20Jamblang!%20Saya%20mau%20pesan%20Tahu%20Gimbal%20Original." class="btn-order">💬 Pesan via WhatsApp</a>
+          <a href="https://gofood.co.id/semarang/restaurant/tahu-gimbal-mas-jamblank-f473ed5a-2a18-4b10-8622-4ba6977c3e4b" target="_blank" class="btn-order-gofood">🛵 Pesan via GoFood</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section class="why-section" id="kenapa">
+  <div class="section-label">Kenapa Harus Mas Jamblang?</div>
+  <h2 class="section-title">Beda dari yang Lain.</h2>
+  <p class="section-sub">Bukan sekadar murah. Tapi murah dengan kualitas yang tidak dikompromikan.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🍽️</div>
+      <h3>Porsi Besar, Kenyang Maksimal</h3>
+      <p>Tidak pelit porsi. Satu mangkuk bikin kamu benar-benar kenyang dan puas.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h3>Harga Tetap Ramah Kantong</h3>
+      <p>Mulai 20 ribu. Porsi besar, rasa premium — harga tetap street food.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🦐</div>
+      <h3>Udang Fresh, Bukan Frozen</h3>
+      <p>Udang utuh yang kerasa. Bukan remahan atau frozen murahan.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🥜</div>
+      <h3>Bumbu Dibuat Fresh Setiap Hari</h3>
+      <p>Bumbu kacang diracik pagi. Tidak pakai yang kemarin. Selalu segar dan seimbang.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⭐</div>
+      <h3>Sudah Dipercaya Banyak Pelanggan</h3>
+      <p>Rating 4.8 dari ratusan pelanggan setia. Sering repeat order via GoFood.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📱</div>
+      <h3>Bisa Order Online & QRIS</h3>
+      <p>Order via WhatsApp atau GoFood. Bayar mudah pakai QRIS tanpa ribet.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🍽️</div>
+      <h3>Cocok Buat Makan Siang & Nongkrong</h3>
+      <p>Porsi pas buat isi tenaga, enak dimakan rame-rame bareng teman atau keluarga.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔥</div>
+      <h3>Digoreng Dadakan Saat Dipesan</h3>
+      <p>Tahu dan udang selalu dibuat fresh setelah order masuk. Lebih renyah, lebih wangi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="reviews-section" id="ulasan">
+  <div class="section-label">Ulasan Pelanggan</div>
+  <h2 class="section-title">Rasa yang Bikin Orang Ketagihan</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Porsinya jumbo, gak pelit, komplit banget. Udangnya besar-besar, bukan ecek-ecek."</p>
+      <div class="review-author">— Arif Rahman Pradana</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Udangnya kerasa banget. Ini beda dari tahu gimbal yang lain. Recommended!"</p>
+      <div class="review-author">— Dani Hamdani</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Gimbalnya digoreng dadakan, fresh banget. Gak minyakan. Pas dimakan langsung."</p>
+      <div class="review-author">— Sara Devina</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Bumbu kacangnya pas, gak terlalu medok. Enak banget, jadi nagih."</p>
+      <div class="review-author">— Rahman Hakim</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Hidden gem. Lokasinya di gang tapi worth it banget. Sekali coba pasti balik."</p>
+      <div class="review-author">— Beni Wibowo</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Murah tapi kualitasnya gak murahan. Ini yang paling sering saya repeat order."</p>
+      <div class="review-author">— Anis Rahmawati</div>
+    </div>
+  </div>
+  <div class="reviews-summary">
+    <strong>⭐ 4.8</strong> / 5 dari ratusan pelanggan &nbsp;|&nbsp; Favorit area Banyumanik
+  </div>
+</section>
+
+<!-- ─── LOCATION ─── -->
+<section class="location-section" id="lokasi">
+  <div class="location-info">
+    <div class="section-label">Temukan Kami</div>
+    <h2>Hidden Gem yang Layak Kamu Datangi</h2>
+    <p>Lokasi di dalam gang perumahan area Banyumanik, Semarang. Tempat sederhana, rasa luar biasa. Tenang — parkir mobil tetap bisa masuk.</p>
+    <div class="location-facts">
+      <div class="location-fact">
+        <strong>📍 Banyumanik</strong>
+        <span>Semarang, Jawa Tengah</span>
+      </div>
+      <div class="location-fact">
+        <strong>📞 0858-7827-4151</strong>
+        <span>WhatsApp & Telepon</span>
+      </div>
+      <div class="location-fact">
+        <strong>⚡ Respon Cepat</strong>
+        <span>Bisa order langsung</span>
+      </div>
+    </div>
+    <div class="location-ctas" style="margin-top:1.5rem">
+      <a href="https://maps.app.goo.gl/MqoAti4DpZWrqZqGA" target="_blank" class="btn-map">🗺️ Buka di Google Maps</a>
+      <a href="#home" class="btn-wa">💬 Pesan Sekarang</a>
+    </div>
+  </div>
+  <div class="location-map-embed">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0!2d110.4283!3d-7.0723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBanyumanik%2C+Semarang!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Lokasi Tahu Gimbal Mas Jamblang">
+    </iframe>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section" id="faq">
+  <div class="faq-header">
+    <span class="section-label">❓ FAQ</span>
+    <h2 class="section-title">Masih Ada yang Mau Ditanya?</h2>
+    <p class="section-sub">Kami jawab pertanyaan paling sering ditanyakan pelanggan sebelum order.</p>
+  </div>
+  <div class="faq-container">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Bisa delivery ke luar Banyumanik?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Bisa. Order dapat dilakukan lewat GoFood atau WhatsApp sesuai area pengiriman.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Tahu gimbalnya pedas?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Tingkat pedas dapat disesuaikan sesuai selera kamu.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Jam bukanya sampai jam berapa?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Kami buka setiap hari pukul 10.00 sampai 22.00 WIB.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Bisa bayar pakai QRIS?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Bisa. Kami menerima pembayaran QRIS, transfer, dan tunai.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Udangnya fresh atau frozen?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Kami memakai udang fresh utuh agar rasa dan teksturnya tetap maksimal.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Apakah bisa pesan banyak untuk acara?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Bisa. Hubungi WhatsApp untuk pemesanan dalam jumlah besar atau acara khusus.</p>
+      </div>
+    </div>
+
+    <p class="faq-microcopy">Masih bingung? Chat langsung via WhatsApp.</p>
+    <div class="faq-cta-wrap">
+      <a href="https://wa.me/6285878274151?text=Halo%20Mas%20Jamblang!%20Saya%20mau%20tanya%20sebelum%20order." class="btn-faq-wa">💬 Tanya via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── URGENCY ─── -->
+<section class="urgency-section">
+  <div class="urgency-inner">
+    <h2>Jangan Nunggu Lapar Parah 🔥</h2>
+    <p>Banyak pelanggan repeat order. Stok sering habis di jam ramai. Pesan sekarang, makan sekarang.</p>
+    <div class="urgency-ctas">
+      <a href="#home" class="btn-white">Pesan Sekarang</a>
+      <a href="#menu" class="btn-outline-white">Lihat Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo" style="color:var(--white)">Mas <span style="color:var(--gold)">Jamblang</span></span>
+      <p>Tahu Gimbal legendaris dari Semarang. Street food rasa bintang lima. Porsi besar, harga tetap ramah. Diracik tradisional, disajikan dengan cinta.</p>
+      <p style="margin-top:1rem;color:rgba(255,255,255,0.35);font-size:0.8rem">"Porsi Gede. Rasa Nendang."</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#kenapa">Kenapa Kami</a></li>
+        <li><a href="#ulasan">Ulasan</a></li>
+        <li><a href="#lokasi">Lokasi</a></li>
+        <li><a href="#faq">FAQ</a></li>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="https://wa.me/6285878274151">WhatsApp: 0858-7827-4151</a></li>
+        <li><a href="https://maps.app.goo.gl/MqoAti4DpZWrqZqGA" target="_blank">Lihat Lokasi di Maps</a></li>
+        <li><a href="#menu">Lihat Menu Lengkap</a></li>
+      </ul>
+      <div style="margin-top:1.5rem">
+        <a href="https://wa.me/6285878274151?text=Halo%20Mas%20Jamblang!%20Saya%20mau%20pesan%20Tahu%20Gimbal." class="btn-wa" style="font-size:0.82rem;padding:0.6rem 1.2rem">💬 Chat Sekarang</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Tahu Gimbal Mas Jamblang. Semua hak cipta dilindungi.</p>
+    <p>Banyumanik, Semarang, Jawa Tengah</p>
+  </div>
+</footer>
+
+<script>
+  // ─── COUNTDOWN LOGIC ───
+  function updateCountdown() {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    const s = now.getSeconds();
+    const totalSecsNow = h * 3600 + m * 60 + s;
+
+    const OPEN  = 10 * 3600;  // 10:00
+    const CLOSE = 22 * 3600;  // 22:00
+
+    const isOpen = totalSecsNow >= OPEN && totalSecsNow < CLOSE;
+
+    const icon       = document.getElementById('cd-icon');
+    const title      = document.getElementById('cd-title');
+    const statusEl   = document.getElementById('cd-status');
+    const statusTxt  = document.getElementById('cd-status-text');
+    const timerLabel = document.getElementById('cd-timer-label');
+    const hoursEl    = document.getElementById('cd-hours');
+    const minsEl     = document.getElementById('cd-minutes');
+    const secsEl     = document.getElementById('cd-seconds');
+    const urgency    = document.getElementById('cd-urgency');
+
+    let diff;
+    if (isOpen) {
+      diff = CLOSE - totalSecsNow;
+      icon.textContent = '🍽️';
+      title.textContent = 'Masih Buka Hari Ini';
+      statusEl.className = 'countdown-status open';
+      statusTxt.textContent = 'Sedang Buka';
+      timerLabel.textContent = 'Tutup dalam';
+      urgency.classList.toggle('visible', diff < 3600);
+    } else {
+      diff = totalSecsNow < OPEN
+        ? OPEN - totalSecsNow
+        : (24 * 3600 - totalSecsNow) + OPEN;
+      icon.textContent = '😴';
+      title.textContent = 'Warung Sedang Tutup';
+      statusEl.className = 'countdown-status closed';
+      statusTxt.textContent = 'Sudah Tutup';
+      timerLabel.textContent = 'Buka lagi dalam';
+      urgency.classList.remove('visible');
+    }
+
+    const hh = Math.floor(diff / 3600);
+    const mm = Math.floor((diff % 3600) / 60);
+    const ss = diff % 60;
+    hoursEl.textContent   = String(hh).padStart(2, '0');
+    minsEl.textContent    = String(mm).padStart(2, '0');
+    secsEl.textContent    = String(ss).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // ─── FAQ ACCORDION ───
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    const icon = item.querySelector('.faq-icon');
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('faq-active');
+      // Close all
+      faqItems.forEach(i => {
+        i.classList.remove('faq-active');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        i.querySelector('.faq-icon').textContent = '+';
+      });
+      // Open clicked if it was not already open
+      if (!isActive) {
+        item.classList.add('faq-active');
+        btn.setAttribute('aria-expanded', 'true');
+        icon.textContent = '−';
+      }
+    });
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animation = 'fadeUp 0.6s ease both';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.menu-card, .why-card, .review-card, .about-point').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+  });
+
+  // ─── FAQ ACCORDION already above ───
+
+</script>
+
+<script>
+/* ══════════════════════════════════════
+   AUTO-SCROLL SECRET FEATURE
+══════════════════════════════════════ */
+(function () {
+  const btn    = document.getElementById('autoscrollBtn');
+  const rootEl = document.documentElement;
+  const SPEED  = 1.2;
+  let   rafId  = null;
+  let   running = false;
+
+  function currentTheme() {
+    return rootEl.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  function toggleTheme() {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    rootEl.classList.add('theme-transitioning');
+    rootEl.setAttribute('data-theme', next);
+    localStorage.setItem('tg-theme', next);
+    setTimeout(() => rootEl.classList.remove('theme-transitioning'), 400);
+  }
+
+  function scrollStep() {
+    if (!running) return;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    if (window.scrollY >= maxScroll - 2) {
+      // Ganti tema dulu
+      toggleTheme();
+      // Scroll smooth kembali ke atas
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Tunggu sampai scroll ke atas benar-benar selesai, lalu lanjut
+      function waitForTop() {
+        if (window.scrollY <= 2) {
+          setTimeout(() => { if (running) rafId = requestAnimationFrame(scrollStep); }, 600);
+        } else {
+          requestAnimationFrame(waitForTop);
+        }
+      }
+      requestAnimationFrame(waitForTop);
+      return;
+    }
+    window.scrollBy(0, SPEED);
+    rafId = requestAnimationFrame(scrollStep);
+  }
+
+  function start() {
+    running = true;
+    btn.classList.add('active');
+    rafId = requestAnimationFrame(scrollStep);
+  }
+
+  function stop() {
+    running = false;
+    btn.classList.remove('active');
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  // Klik tombol tersembunyi tetap berfungsi
+  btn.addEventListener('click', () => { running ? stop() : start(); });
+
+  // Keyboard shortcut: A + S + D ditekan bersamaan
+  const required = new Set(['a', 's', 'd']);
+  const held     = new Set();
+
+  document.addEventListener('keydown', (e) => {
+    const key = e.key.toLowerCase();
+    if (!required.has(key)) return;
+    held.add(key);
+    if (required.size === held.size && [...required].every(k => held.has(k))) {
+      running ? stop() : start();
+    }
+  });
+
+  document.addEventListener('keyup', (e) => {
+    held.delete(e.key.toLowerCase());
+  });
+})();
+</script>
+</div><!-- /.site-content -->
+
+<script>
+// ══════════════════════════════════════
+// SKELETON LOADING CONTROLLER
+// ══════════════════════════════════════
+(function () {
+  const overlay = document.getElementById('skeleton-overlay');
+
+  function dismissSkeleton() {
+    // 1. Reveal real content
+    document.body.classList.add('loaded');
+
+    // 2. Fade + scale out overlay
+    overlay.classList.add('fade-out');
+
+    // 3. Remove from DOM after transition
+    overlay.addEventListener('transitionend', () => {
+      overlay.remove();
+    }, { once: true });
+
+    // 4. Stagger menu cards
+    const menuCards = document.querySelectorAll('.menu-card');
+    menuCards.forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(22px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 350 + i * 120);
+    });
+
+    // 5. Stagger review cards
+    const reviewCards = document.querySelectorAll('.review-card');
+    reviewCards.forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(18px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 500 + i * 90);
+    });
+
+    // 6. Stagger why cards
+    const whyCards = document.querySelectorAll('.why-card');
+    whyCards.forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(16px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 400 + i * 80);
+    });
+  }
+
+  // Fire on window load (all images + resources done)
+  if (document.readyState === 'complete') {
+    // Minimum shimmer display: 600ms feels intentional, not just a flash
+    setTimeout(dismissSkeleton, 600);
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(dismissSkeleton, 600);
+    });
+  }
+
+  // Safety net: never block the page more than 3.5s
+  setTimeout(dismissSkeleton, 3500);
+})();
+</script>
+
+<script>
+/* ══════════════════════════════════════
+   DARK MODE TOGGLE
+══════════════════════════════════════ */
+(function () {
+  const root    = document.documentElement;
+  const btn     = document.getElementById('themeToggle');
+  const STORAGE = 'tg-theme';
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE, theme);
+  }
+
+  // Restore saved preference (or system preference)
+  const saved = localStorage.getItem(STORAGE);
+  if (saved) {
+    applyTheme(saved);
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    applyTheme('dark');
+  }
+
+  // Toggle on click
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+
+    // Smooth colour transition
+    root.classList.add('theme-transitioning');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+    setTimeout(() => root.classList.remove('theme-transitioning'), 400);
+
+    // Micro-animation on button
+    btn.style.transform = 'rotate(360deg) scale(1.15)';
+    setTimeout(() => { btn.style.transform = ''; }, 350);
+  });
+})();
+</script>
+
+<script>
+/* ══════════════════════════════════════
+   SCROLL REVEAL — Lokasi, FAQ, Urgency
+══════════════════════════════════════ */
+(function () {
+
+  /* Tambahkan class reveal ke elemen-elemen target */
+  function prepareElements() {
+
+    // ── LOKASI section ──
+    const locInfo = document.querySelector('.location-info');
+    const locMap  = document.querySelector('.location-map-embed');
+    if (locInfo) locInfo.classList.add('reveal', 'reveal-left');
+    if (locMap)  locMap.classList.add('reveal', 'reveal-right');
+
+    // Location facts — stagger
+    document.querySelectorAll('.location-fact').forEach((el, i) => {
+      el.classList.add('reveal', 'reveal-d' + (i + 1));
+    });
+
+    // Location CTAs
+    const locCtas = document.querySelector('.location-ctas');
+    if (locCtas) locCtas.classList.add('reveal', 'reveal-d3');
+
+    // ── FAQ section ──
+    const faqHeader = document.querySelector('.faq-header');
+    if (faqHeader) faqHeader.classList.add('reveal');
+
+    document.querySelectorAll('.faq-item').forEach((el, i) => {
+      el.classList.add('reveal', 'reveal-d' + Math.min(i + 1, 6));
+    });
+
+    const faqMicro = document.querySelector('.faq-microcopy');
+    const faqCta   = document.querySelector('.faq-cta-wrap');
+    if (faqMicro) faqMicro.classList.add('reveal', 'reveal-d4');
+    if (faqCta)   faqCta.classList.add('reveal', 'reveal-d5');
+
+    // ── URGENCY section ──
+    const urgInner = document.querySelector('.urgency-inner');
+    if (urgInner) urgInner.classList.add('reveal', 'reveal-scale');
+
+    // ── COUNTDOWN section ──
+    const cdIcon   = document.querySelector('.countdown-icon');
+    const cdTitle  = document.querySelector('.countdown-title');
+    const cdStatus = document.querySelector('.countdown-status');
+    const cdLabel  = document.querySelector('.countdown-timer-label');
+    const cdDigits = document.querySelector('.countdown-digits');
+    const cdOps    = document.querySelector('.countdown-ops');
+    const cdCta    = document.querySelector('.countdown-cta');
+
+    if (cdIcon)   cdIcon.classList.add('reveal', 'reveal-scale');
+    if (cdTitle)  cdTitle.classList.add('reveal', 'reveal-d1');
+    if (cdStatus) cdStatus.classList.add('reveal', 'reveal-d2');
+    if (cdLabel)  cdLabel.classList.add('reveal', 'reveal-d2');
+    if (cdDigits) cdDigits.classList.add('reveal', 'reveal-scale', 'reveal-d3');
+    if (cdOps)    cdOps.classList.add('reveal', 'reveal-d4');
+    if (cdCta)    cdCta.classList.add('reveal', 'reveal-d5');
+
+    // ── FOOTER section ──
+    const footerBrand = document.querySelector('.footer-brand');
+    if (footerBrand) footerBrand.classList.add('reveal', 'reveal-left');
+
+    document.querySelectorAll('.footer-col').forEach((el, i) => {
+      el.classList.add('reveal', 'reveal-d' + (i + 1));
+    });
+
+    const footerBottom = document.querySelector('.footer-bottom');
+    if (footerBottom) footerBottom.classList.add('reveal', 'reveal-d3');
+  }
+
+  /* IntersectionObserver — trigger saat masuk viewport */
+  function initObserver() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  /* Jalankan setelah DOM siap */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => { prepareElements(); initObserver(); });
+  } else {
+    prepareElements();
+    initObserver();
+  }
+
+})();
+</script>
+</body>
+</html>
